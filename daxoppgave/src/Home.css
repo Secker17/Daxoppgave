@@ -1,0 +1,32 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100vh; /* Use full height to space out elements */
+  }
+  
+  .alias-section {
+    text-align: center;
+  }
+  
+  .thematic-image {
+    /* Styling for the main image */
+    max-width: 50%; /* Example size, adjust as needed */
+    margin: 20px 0;
+  }
+  
+  .home .rundell {
+    position: relative;
+    width: 30%; /* Set the width you want for your image rotator */
+    height: 400px; /* Set the height you want for your image rotator */
+    overflow: hidden;
+  }
+  
+  .home .rundell .rotating-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This makes the image cover the area without stretching */
+    transition: opacity 0.5s ease-in-out;
+  }
+  
