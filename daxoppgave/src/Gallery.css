@@ -1,0 +1,63 @@
+.gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+    margin: 0 auto;
+  }
+  
+  .image-container {
+    border: 1px solid #ccc; /* Erstatt med ønsket stil */
+    padding: 10px;
+  }
+  
+  .gallery-image {
+    width: 100%; /* Dette gjør at bildene fyller containeren */
+    height: auto;
+    cursor: pointer;
+    display: block; /* Forhindrer ekstra plass nedenfor bildene */
+    margin-bottom: 15px; /* Gir avstand mellom radene */
+  }
+  
+  /* Modal-relaterte stiler her... */
+  
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .enlarged-image {
+    max-width: 90vw;
+    max-height: 90vh;
+  }
+  
