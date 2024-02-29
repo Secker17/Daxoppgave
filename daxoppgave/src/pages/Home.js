@@ -25,21 +25,6 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, [rotatingImages.length]);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // Start fade-out
-      // Set some state to reduce opacity to 0
-  
-      setTimeout(() => {
-        // After fade-out, switch image
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % rotatingImages.length);
-        
-        // Start fade-in by adjusting state to increase opacity back to 1
-      }, 500); // This timeout should match your CSS transition time
-    }, 3500); // Adjust overall interval to account for fade time
-  
-    return () => clearInterval(intervalId);
-  }, [rotatingImages.length]);
   
   
   return (
@@ -54,7 +39,7 @@ const Home = () => {
       </div>
       <div className="rundell">
         {/* The image rotator for additional images */}
-        <img src={rotatingImages[currentImageIndex]} alt="Rotating art" className="rotating-image"/>
+        <img key={rotatingImages[currentImageIndex]} src={rotatingImages[currentImageIndex]} alt="Rotating art" className="rotating-image"/>
       </div>
     </div>
   );
