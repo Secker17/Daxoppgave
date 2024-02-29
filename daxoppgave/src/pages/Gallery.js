@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../Gallery.css'; // Pass på at denne filbanen er riktig
+import '../Gallery.css'; // Sørg for at denne stien er korrekt
 
 const Gallery = ({ hackerAlias }) => {
   const [images, setImages] = useState([]);
@@ -14,10 +14,9 @@ const Gallery = ({ hackerAlias }) => {
       `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.55.51 - Envision a futuristic scene where a robot Viking, designed with intricate metallic armor that reflects the traditional Viking appearance, rides atop a.webp`,
       `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.55.56 - Revise the scene once more, placing the Viking warrior with green eyes and red hair, and his baby dragon companion, at the forefront of a Viking ship,.webp`,
       `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.56.00 - Imagine a revised scene from the Viking Age, where the same formidable Viking warrior, characterized by striking green eyes and fiery red hair, now ha.webp`
-      // Sørg for at alle lenker til bildene er gyldige
     ];
-  }, []);
-  
+    setImages(fetchedImages); // Oppdaterer tilstanden med hentede bilder
+  }, []); // Tom avhengighetsliste betyr at denne effekten bare kjører én gang, når komponenten monteres
 
   const handleImageClick = (image) => {
     setSelectedImage(image);

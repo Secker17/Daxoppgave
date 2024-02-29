@@ -3,14 +3,13 @@ import { Link } from 'react-router-dom';
 import '../Home.css'; // Ensure the CSS file is properly linked
 
 const Home = () => {
-  const hackerAlias = "Mother"; // Dynamic data
+  const hackerAlias = "Mother"; 
 
   // Images array for the rotator, add more image paths as needed
   const rotatingImages = [
     `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.55.27 - Imagine an aquarelle (watercolor) painting that depicts a serene forest scene in Germany. The artwork captures the lush greenery of the German country.webp`,
     `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.55.34 - Visualize an oil painting that captures the classic still life subject of a bowl of fruit. The composition features a richly detailed bowl overflowing.webp`,
     `${process.env.PUBLIC_URL}/images/DALL·E 2024-02-25 13.55.41 - Imagine a futuristic garden where the flowers are not organic, but robotic. Each flower is meticulously designed with metallic petals that gleam in th.webp`,
-    // ...more images
   ];
 
   // State to keep track of the current rotating image index
@@ -26,6 +25,23 @@ const Home = () => {
     return () => clearInterval(intervalId);
   }, [rotatingImages.length]);
 
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      // Start fade-out
+      // Set some state to reduce opacity to 0
+  
+      setTimeout(() => {
+        // After fade-out, switch image
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % rotatingImages.length);
+        
+        // Start fade-in by adjusting state to increase opacity back to 1
+      }, 500); // This timeout should match your CSS transition time
+    }, 3500); // Adjust overall interval to account for fade time
+  
+    return () => clearInterval(intervalId);
+  }, [rotatingImages.length]);
+  
+  
   return (
     <div className="home">
       <div className="alias-section">
